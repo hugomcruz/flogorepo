@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "type": "flogo:trigger",
   "ref": "github.com/hugomcruz/flogorepo/tcpconnector",
+  "title": "TCP Connector",
   "description": "TCP Connector. Connects to a TCP socket to receive a data stream. ",
   "author": "Hugo Cruz <hugo.m.cruz@gmail.com>",
   "settings":[
