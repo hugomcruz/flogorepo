@@ -1,0 +1,35 @@
+{
+  "name": "tcp-connector",
+  "version": "0.1.0",
+  "type": "flogo:trigger",
+  "ref": "github.com/hugomcruz/flogorepo/trigger/tcpconnector",
+  "description": "TCP Connector. Connects to a TCP socket to receive a data stream. ",
+  "author": "Hugo Cruz <hugo.m.cruz@gmail.com>",
+  "settings":[
+    {
+      "name": "port",
+      "type": "string",
+      "value": "TCP Port to Connect to"
+    },
+    {
+      "name": "hostname",
+      "type": "string",
+      "value": "Hostname / IP Address to connect"
+    },
+
+  ],
+  "output": [
+    {
+      "name": "payload",
+      "type": "string"
+    }
+  ],
+  "handler": {
+    "settings": [
+      {
+        "name": "handler_setting",
+        "type": "string"
+      }
+    ]
+  }
+}
