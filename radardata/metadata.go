@@ -1,4 +1,4 @@
-package processradarpayload
+package radardata
 
 import "github.com/TIBCOSoftware/flogo-lib/core/data/coerce"
 
