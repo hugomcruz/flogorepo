@@ -1,5 +1,5 @@
 {
-  "name": "process-radar-data",
+  "name": "radardata",
   "type": "flogo:activity",
   "version": "0.0.1",
   "title": "Process Radar Data",
