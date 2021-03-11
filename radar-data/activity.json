@@ -1,11 +1,11 @@
 {
-  "name": "tibco-counter",
+  "name": "radar-data",
   "type": "flogo:activity",
-  "ref": "github.com/TIBCOSoftware/flogo-contrib/activity/counter",
+  "ref": "github.com/hugomcruz/flogorepo/radar-data",
   "version": "0.0.1",
   "title": "Increment Counter",
   "description": "Simple Global Counter Activity",
-  "homepage": "https://github.com/TIBCOSoftware/flogo-contrib/tree/master/activity/counter",
+  "homepage": "https://www.tibco.com",
   "input":[
     {
       "name": "counterName",
