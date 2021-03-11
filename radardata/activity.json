@@ -1,6 +1,7 @@
 {
   "name": "radardata",
   "type": "flogo:activity",
+  "ref": "github.com/hugomcruz/flogorepo/radardata",
   "version": "0.0.1",
   "title": "Process Radar Data",
   "description": "Process Radar Data send by Hugo Cruz Go Lang Publisher",
