@@ -1,4 +1,4 @@
-package processradarpayload
+package radardata
 
 import (
 	"testing"

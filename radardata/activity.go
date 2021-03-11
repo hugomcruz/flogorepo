@@ -1,8 +1,8 @@
 package processradarpayload
 
 import (
-	"github.com/project-flogo/core/activity"
-	"github.com/project-flogo/core/data/metadata"
+	"github.com/TIBCOSoftware/flogo-lib/core/activity"
+	"github.com/TIBCOSoftware/flogo-lib/core/data/metadata"
 )
 
 func init() {

@@ -1,6 +1,6 @@
 package processradarpayload
 
-import "github.com/project-flogo/core/data/coerce"
+import "github.com/TIBCOSoftware/flogo-lib/core/data/coerce"
 
 type Settings struct {
 	ASetting string `md:"aSetting,required"`
