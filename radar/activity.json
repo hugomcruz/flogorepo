@@ -16,7 +16,7 @@
   "input": [
     {
       "name": "payload",
-      "type": "bytes",
+      "type": "[]byte",
       "required": true
     }
   ],
