@@ -59,7 +59,7 @@ func (a *CounterActivity) Metadata() *activity.Metadata {
 // Eval implements activity.Activity.Eval
 func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) {
 
-	payload := context.GetInput("payload")
+	payload := []byte(context.GetInput("payload"))
 
 	//Decompress the payload message
 	r, _ := gzip.NewReader(bytes.NewReader(payload))
