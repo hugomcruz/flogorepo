@@ -1,4 +1,4 @@
-package radardata
+package fradar
 
 import (
 	"bytes"
@@ -12,7 +12,7 @@ import (
 )
 
 // log is the default package logger
-var log = logger.GetLogger("tibco-activity-radardata")
+var log = logger.GetLogger("tibco-activity-radar")
 
 type Output struct {
 	msgType      string
