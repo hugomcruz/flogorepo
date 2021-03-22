@@ -3,6 +3,7 @@ package radar
 import (
 	"bytes"
 	"compress/gzip"
+	"fmt"
 	"io/ioutil"
 	"sync"
 
@@ -67,13 +68,15 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 	data := string(result)
 
+	fmt.Print(data)
+
 	if err != nil {
 		return true, err
 	}
 
-	log.Debugf("Input: %s", payload)
+	//log.Debugf("Input: %s", data)
 
-	context.SetOutput("msgType", data)
+	context.SetOutput("msgType", "test")
 
 	return true, nil
 }
