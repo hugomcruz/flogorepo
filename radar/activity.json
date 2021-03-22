@@ -16,7 +16,7 @@
   "input": [
     {
       "name": "payload",
-      "type": "object",
+      "type": "any",
       "required": true
     }
   ],
@@ -27,7 +27,7 @@
     },
     {
       "name": "timestamp",
-      "type": "int64"
+      "type": "integer"
     },
     {
       "name": "icaoHexCode",
@@ -39,31 +39,31 @@
     },
     {
       "name": "altitude",
-      "type": "int32"
+      "type": "integer"
     },
     {
       "name": "latitude",
-      "type": "float32"
+      "type": "double"
     },
     {
       "name": "longitude",
-      "type": "float32"
+      "type": "double"
     },
     {
       "name": "onGround",
-      "type": "int32"
+      "type": "integer"
     },
     {
       "name": "groundSpeed",
-      "type": "float32"
+      "type": "double"
     },
     {
       "name": "track",
-      "type": "float32"
+      "type": "double"
     },
     {
       "name": "verticalRate",
-      "type": "int32"
+      "type": "integer"
     }
   ]
 }
