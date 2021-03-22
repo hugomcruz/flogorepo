@@ -1,6 +1,9 @@
 package radar
 
 import (
+	"bytes"
+	"compress/gzip"
+	"io/ioutil"
 	"sync"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
@@ -58,13 +61,19 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 	payload := context.GetInput("payload")
 
+	//Decompress the payload message
+	r, _ := gzip.NewReader(bytes.NewReader(payload))
+	result, _ := ioutil.ReadAll(r)
+
+	data := string(result)
+
 	if err != nil {
 		return true, err
 	}
 
 	log.Debugf("Input: %s", payload)
 
-	context.SetOutput("msgType", "test")
+	context.SetOutput("msgType", data)
 
 	return true, nil
 }
