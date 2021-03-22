@@ -8,6 +8,7 @@ import (
 	"sync"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
+	"github.com/project-flogo/core/data/coerce"
 )
 
 // log is the default package logger
@@ -59,10 +60,11 @@ func (a *CounterActivity) Metadata() *activity.Metadata {
 // Eval implements activity.Activity.Eval
 func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) {
 
-	payload := context.GetInput("payload").([]byte)
+	payload := context.GetInput("payload")
+	b, err := coerce.ToBytes(payload)
 
 	//Decompress the payload message
-	r, _ := gzip.NewReader(bytes.NewReader(payload))
+	r, _ := gzip.NewReader(bytes.NewReader(b))
 	result, _ := ioutil.ReadAll(r)
 
 	data := string(result)
