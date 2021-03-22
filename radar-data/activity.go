@@ -1,4 +1,4 @@
-package counter
+package radar
 
 import (
 	"sync"
@@ -8,7 +8,25 @@ import (
 )
 
 // log is the default package logger
-var log = logger.GetLogger("activity-tibco-counter")
+var log = logger.GetLogger("activity-radar-data")
+
+type Output struct {
+	msgType      string  `md:"msgType"`
+	timestamp    int64   `md:"timestamp"`
+	icaoHexCode  string  `md:"icaoHexCode"`
+	callsign     string  `md:"callsign"`
+	altitude     int32   `md:"altitude"`
+	latitude     float32 `md:"latitude"`
+	longitude    float32 `md:"longitude"`
+	onGround     int32   `md:"onGround"`
+	groundSpeed  float32 `md:"groundSpeed"`
+	track        float32 `md:"track"`
+	verticalRate int32   `md:"verticalRate"`
+}
+
+type Input struct {
+	payload []byte `md:"payload,required"`
+}
 
 const (
 	ivCounterName = "counterName"
@@ -38,67 +56,33 @@ func (a *CounterActivity) Metadata() *activity.Metadata {
 // Eval implements activity.Activity.Eval
 func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) {
 
-	counterName := context.GetInput(ivCounterName).(string)
-
-	var increment, reset bool
-
-	if context.GetInput(ivIncrement) != nil {
-		increment = context.GetInput(ivIncrement).(bool)
-	}
-	if context.GetInput(ivReset) != nil {
-		reset = context.GetInput(ivReset).(bool)
+	input := &Input{}
+	err = context.GetInputObject(input)
+	if err != nil {
+		return true, err
 	}
 
-	var count int
+	payload := input.payload
 
-	if reset {
-		count = a.resetCounter(counterName)
+	log.Debugf("Input: %s", payload)
 
-		log.Debugf("Counter [%s] reset", counterName)
-	} else if increment {
-		count = a.incrementCounter(counterName)
-
-		log.Debugf("Counter [%s] incremented: %d", counterName, count)
-	} else {
-		count = a.getCounter(counterName)
-
-		log.Debugf("Counter [%s] = %d", counterName, count)
+	output := &Output{
+		msgType:      "1221",
+		timestamp:    0,
+		icaoHexCode:  "1212",
+		callsign:     "",
+		altitude:     0,
+		latitude:     0,
+		longitude:    0,
+		onGround:     0,
+		groundSpeed:  0,
+		track:        0,
+		verticalRate: 0,
 	}
-
-	context.SetOutput(ovValue, count)
+	err = context.SetOutputObject(output)
+	if err != nil {
+		return true, err
+	}
 
 	return true, nil
-}
-
-func (a *CounterActivity) incrementCounter(counterName string) int {
-	a.Lock()
-	defer a.Unlock()
-
-	count := 1
-
-	if counter, exists := a.counters[counterName]; exists {
-		count = counter + 1
-	}
-
-	a.counters[counterName] = count
-
-	return count
-}
-
-func (a *CounterActivity) resetCounter(counterName string) int {
-	a.Lock()
-	defer a.Unlock()
-
-	if _, exists := a.counters[counterName]; exists {
-		a.counters[counterName] = 0
-	}
-
-	return 0
-}
-
-func (a *CounterActivity) getCounter(counterName string) int {
-	a.Lock()
-	defer a.Unlock()
-
-	return a.counters[counterName]
 }
