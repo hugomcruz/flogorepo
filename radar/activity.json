@@ -8,7 +8,7 @@
   "homepage": "https://github.com/hugomcruz/flogo-repo/radar-data",
   "settings": [
     {
-      "name": "aSetting",
+      "name": "mySetting",
       "type": "string",
       "required": true
     }
