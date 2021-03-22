@@ -56,7 +56,7 @@ func (a *CounterActivity) Metadata() *activity.Metadata {
 // Eval implements activity.Activity.Eval
 func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) {
 
-	payload, err := context.GetInputObject("payload")
+	payload, err := context.GetInput("payload")
 
 	if err != nil {
 		return true, err
@@ -64,7 +64,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 	log.Debugf("Input: %s", payload)
 
-	err = context.SetOutputObject("msgType", "test")
+	err = context.SetOutput("msgType", "test")
 	if err != nil {
 		return true, err
 	}
