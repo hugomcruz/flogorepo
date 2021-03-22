@@ -1,5 +1,5 @@
 {
-  "name": "radardata",
+  "name": "radar",
   "title": "Process Radar Data",
   "version": "0.0.1",
   "type": "flogo:activity",
