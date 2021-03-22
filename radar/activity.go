@@ -11,21 +11,21 @@ import (
 var log = logger.GetLogger("activity-radar-data")
 
 type Output struct {
-	msgType      string  `md:"msgType"`
-	timestamp    int64   `md:"timestamp"`
-	icaoHexCode  string  `md:"icaoHexCode"`
-	callsign     string  `md:"callsign"`
-	altitude     int32   `md:"altitude"`
-	latitude     float32 `md:"latitude"`
-	longitude    float32 `md:"longitude"`
-	onGround     int32   `md:"onGround"`
-	groundSpeed  float32 `md:"groundSpeed"`
-	track        float32 `md:"track"`
-	verticalRate int32   `md:"verticalRate"`
+	msgType      string
+	timestamp    int64
+	icaoHexCode  string
+	callsign     string
+	altitude     int32
+	latitude     float32
+	longitude    float32
+	onGround     int32
+	groundSpeed  float32
+	track        float32
+	verticalRate int32
 }
 
 type Input struct {
-	payload []byte `md:"payload,required"`
+	payload []byte
 }
 
 const (
@@ -56,30 +56,15 @@ func (a *CounterActivity) Metadata() *activity.Metadata {
 // Eval implements activity.Activity.Eval
 func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) {
 
-	input := &Input{}
-	err = context.GetInputObject(input)
+	payload, err := context.GetInputObject("payload")
+
 	if err != nil {
 		return true, err
 	}
 
-	payload := input.payload
-
 	log.Debugf("Input: %s", payload)
 
-	output := &Output{
-		msgType:      "1221",
-		timestamp:    0,
-		icaoHexCode:  "1212",
-		callsign:     "",
-		altitude:     0,
-		latitude:     0,
-		longitude:    0,
-		onGround:     0,
-		groundSpeed:  0,
-		track:        0,
-		verticalRate: 0,
-	}
-	err = context.SetOutputObject(output)
+	err = context.SetOutputObject("msgType", "test")
 	if err != nil {
 		return true, err
 	}
