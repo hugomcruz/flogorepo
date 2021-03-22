@@ -8,11 +8,10 @@ import (
 	"sync"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
 // log is the default package logger
-var log = logger.GetLogger("tibco-activity-radar")
+//var log = logger.GetLogger("tibco-activity-radar")
 
 type Output struct {
 	msgType      string
