@@ -8,7 +8,7 @@
   "display": {
     "category": "Flight Radar",
     "visible": true,
-    "smallIcon": "radar.png",
+    "smallIcon": "fradar.png",
     "description": "Process Radar Data send by Hugo Cruz Go Lang Publisher"
  },
 
@@ -24,7 +24,7 @@
   "outputs": [
     {
       "name": "radardata",
-      "type": "object"
+      "type": "array"
     }
    
   ]
