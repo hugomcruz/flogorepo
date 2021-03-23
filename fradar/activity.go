@@ -3,7 +3,6 @@ package fradar
 import (
 	"bytes"
 	"compress/gzip"
-	"fmt"
 	"io/ioutil"
 	"strconv"
 	"strings"
@@ -74,8 +73,6 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 	// Split the data string into lines
 	dataLines := strings.Split(data, "\n")
 
-	fmt.Printf("Data Line: %s \n", dataLines[0])
-
 	var outputArray = []Output{}
 
 	for _, s := range dataLines {
@@ -86,11 +83,6 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 		if planeRecord[0] == "1" {
 
 			timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
-			fmt.Printf("TimeStamp: %d \n", timestamp)
-
-			fmt.Printf("MESSAGE TYPE: %s \n", planeRecord[0])
-			fmt.Printf("icao hex: %s \n", planeRecord[2])
-			fmt.Printf("Callsign: %s \n", planeRecord[3])
 
 			output := &Output{
 				msgType:      planeRecord[0],
