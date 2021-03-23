@@ -10,18 +10,6 @@ import (
 // log is the default package logger
 //var log = logger.GetLogger("tibco-activity-radar")
 
-type Input struct {
-	payload []byte
-}
-
-const (
-	ivCounterName = "counterName"
-	ivIncrement   = "increment"
-	ivReset       = "reset"
-
-	ovValue = "value"
-)
-
 // CounterActivity is a Counter Activity implementation
 type CounterActivity struct {
 	sync.Mutex
@@ -50,9 +38,9 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 	//log.Debugf("Input: %s", data)
 
-	context.SetOutput("msgType", linedata[msgType])
-	context.SetOutput("callsign", linedata[callsign])
-	context.SetOutput("icaohex", linedata[icaoHexCode])
+	context.SetOutput("msgType", linedata.msgType)
+	context.SetOutput("callsign", linedata.callsign)
+	context.SetOutput("icaohex", linedata.icaoHexCode)
 
 	return true, nil
 }
