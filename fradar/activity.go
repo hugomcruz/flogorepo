@@ -80,7 +80,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 	for _, s := range dataLines {
 
-		fmt.Print("%s\n", s)
+		fmt.Printf("%s\n", s)
 
 		//Split the lines in the comma
 		planeRecord := strings.Split(s, ",")
