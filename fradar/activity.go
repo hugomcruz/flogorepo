@@ -80,13 +80,11 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 	for _, s := range dataLines {
 
-		fmt.Printf("%s \n", s)
-
 		//Split the lines in the comma
 		planeRecord := strings.Split(s, ",")
-		fmt.Printf("TimeStamp: %s \n", planeRecord[1])
 
 		timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+		fmt.Printf("TimeStamp: %d \n", timestamp)
 
 		if planeRecord[0] == "1" {
 
