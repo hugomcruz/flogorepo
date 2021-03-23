@@ -1,0 +1,70 @@
+{
+  "name": "fradar",
+  "title": "Process Radar Data",
+  "version": "0.0.2",
+  "type": "flogo:activity",
+  "author":"Hugo Cruz",
+
+  "display": {
+    "category": "Flight Radar",
+    "visible": true,
+    "smallIcon": "radar.png",
+    "description": "Process Radar Data send by Hugo Cruz Go Lang Publisher"
+ },
+
+  "ref": "github.com/hugomcruz/flogorepo/fradar",
+
+  "inputs": [
+    {
+      "name": "payload",
+      "type": "any",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "msgType",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type": "integer"
+    },
+    {
+      "name": "icaoHexCode",
+      "type": "string"
+    },
+    {
+      "name": "callsign",
+      "type": "string"
+    },
+    {
+      "name": "altitude",
+      "type": "integer"
+    },
+    {
+      "name": "latitude",
+      "type": "double"
+    },
+    {
+      "name": "longitude",
+      "type": "double"
+    },
+    {
+      "name": "onGround",
+      "type": "integer"
+    },
+    {
+      "name": "groundSpeed",
+      "type": "double"
+    },
+    {
+      "name": "track",
+      "type": "double"
+    },
+    {
+      "name": "verticalRate",
+      "type": "integer"
+    }
+  ]
+}

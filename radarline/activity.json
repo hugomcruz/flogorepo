@@ -1,0 +1,39 @@
+{
+  "name": "radarline",
+  "title": "Single line radar data output",
+  "version": "0.0.2",
+  "type": "flogo:activity",
+  "author":"Hugo Cruz",
+
+  "display": {
+    "category": "Flight Radar",
+    "visible": true,
+    "smallIcon": "radarline.png",
+    "description": "Process Radar Data send by Hugo Cruz Go Lang Publisher"
+ },
+
+  "ref": "github.com/hugomcruz/flogorepo/radarline",
+
+  "inputs": [
+    {
+      "name": "lineobject",
+      "type": "object",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "callsign",
+      "type": "string"
+    },
+    {
+      "name": "msgType",
+      "type": "string"
+    },
+    {
+      "name": "icaohex",
+      "type": "string"
+    }
+   
+  ]
+}
