@@ -6,7 +6,7 @@
   "author":"Hugo Cruz",
 
   "display": {
-    "category": "Flight Radar",
+    "category": "Flight Radar Line",
     "visible": true,
     "smallIcon": "radarline.png",
     "description": "Process Radar Data send by Hugo Cruz Go Lang Publisher"
@@ -16,7 +16,7 @@
 
   "inputs": [
     {
-      "name": "lineobject",
+      "name": "linedata",
       "type": "object",
       "required": true
     }
