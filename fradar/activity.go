@@ -83,10 +83,14 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 		//Split the lines in the comma
 		planeRecord := strings.Split(s, ",")
 
-		timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
-		fmt.Printf("TimeStamp: %d \n", timestamp)
-
 		if planeRecord[0] == "1" {
+
+			timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+			fmt.Printf("TimeStamp: %d \n", timestamp)
+
+			fmt.Printf("MESSAGE TYPE: %s \n", planeRecord[0])
+			fmt.Printf("icao hex: %s \n", planeRecord[2])
+			fmt.Printf("Callsign: %s \n", planeRecord[3])
 
 			output := &Output{
 				msgType:      planeRecord[0],
