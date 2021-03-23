@@ -4,24 +4,11 @@ import (
 	"sync"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
+	"github.com/hugomcruz/flogorepo/fradar"
 )
 
 // log is the default package logger
 //var log = logger.GetLogger("tibco-activity-radar")
-
-type Output struct {
-	msgType      string
-	timestamp    int64
-	icaoHexCode  string
-	callsign     string
-	altitude     int32
-	latitude     float32
-	longitude    float32
-	onGround     int32
-	groundSpeed  float32
-	track        float32
-	verticalRate int32
-}
 
 type Input struct {
 	payload []byte
@@ -55,7 +42,7 @@ func (a *CounterActivity) Metadata() *activity.Metadata {
 // Eval implements activity.Activity.Eval
 func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) {
 
-	linedata := context.GetInput("linedata").(Output)
+	linedata := context.GetInput("linedata").(fradar.Output)
 
 	if err != nil {
 		return true, err
