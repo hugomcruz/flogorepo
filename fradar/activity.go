@@ -3,8 +3,9 @@ package fradar
 import (
 	"bytes"
 	"compress/gzip"
-	"fmt"
 	"io/ioutil"
+	"strconv"
+	"strings"
 	"sync"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
@@ -69,7 +70,38 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 	data := string(result)
 
-	fmt.Print(data)
+	// Split the data string into lines
+	dataLines := strings.Split(data, "\n")
+
+	var outputArray = []Output{}
+
+	for _, s := range dataLines {
+		//Split the lines in the comma
+		planeRecord := strings.Split(s, ",")
+
+		timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+
+		if planeRecord[0] == "1" {
+
+			output := &Output{
+				msgType:      planeRecord[0],
+				timestamp:    timestamp,
+				icaoHexCode:  planeRecord[2],
+				callsign:     planeRecord[3],
+				altitude:     0,
+				latitude:     0,
+				longitude:    0,
+				onGround:     0,
+				groundSpeed:  0,
+				track:        0,
+				verticalRate: 0,
+			}
+
+			outputArray = append(outputArray, *output)
+
+		}
+
+	}
 
 	if err != nil {
 		return true, err
@@ -77,7 +109,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 	//log.Debugf("Input: %s", data)
 
-	context.SetOutput("msgType", "test")
+	context.SetOutput("radardata", outputArray)
 
 	return true, nil
 }
