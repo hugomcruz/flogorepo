@@ -50,9 +50,9 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 	//log.Debugf("Input: %s", data)
 
-	context.SetOutput("msgType", linedata.msgType)
-	context.SetOutput("callsign", linedata.callsign)
-	context.SetOutput("icaohex", linedata.icaoHexCode)
+	context.SetOutput("msgType", linedata[msgType])
+	context.SetOutput("callsign", linedata[callsign])
+	context.SetOutput("icaohex", linedata[icaoHexCode])
 
 	return true, nil
 }
