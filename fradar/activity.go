@@ -3,6 +3,7 @@ package fradar
 import (
 	"bytes"
 	"compress/gzip"
+	"fmt"
 	"io/ioutil"
 	"strconv"
 	"strings"
@@ -73,9 +74,14 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 	// Split the data string into lines
 	dataLines := strings.Split(data, "\n")
 
+	fmt.Printf("Data Line: %s\n", dataLines[0])
+
 	var outputArray = []Output{}
 
 	for _, s := range dataLines {
+
+		fmt.Print("%s\n", s)
+
 		//Split the lines in the comma
 		planeRecord := strings.Split(s, ",")
 
