@@ -1,0 +1,48 @@
+{
+  "name": "timestamp",
+  "type": "flogo:function",
+  "version": "0.0.5",
+  "title": "timestamp",
+  "description": "Timestamp functions",
+  "functions": [{
+    "name": "formatdatetotimestamp",
+    "description": "Converts a date to a timestamp",
+    "example": "timestamp.formatdatetotimestamp(date,date_format)\nReturns\n1573809431645",
+    "args": [{
+        "name": "dateString",
+        "type": "string"
+      },
+      {
+        "name": "dateFormat",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "int64"
+    },
+    "display": {
+      "visible": true
+    }
+  },
+  {
+    "name": "converttsdatestr",
+    "description": "Converts a date to a timestamp",
+    "example": "timestamp.converttsdatestr(timestamp,date_format)\nReturns\n2020-02-02Y12:44:44",
+    "args": [{
+        "name": "timestamp",
+        "type": "int64"
+      },
+      {
+        "name": "dateFormat",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "string"
+    },
+    "display": {
+      "visible": true
+    }
+  }
+]
+}
