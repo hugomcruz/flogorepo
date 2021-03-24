@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	_ = function.Register(&fnTimestamp{})
+	_ = function.Register(&fnTimestampMillis{})
 }
 
 type fnTimestampMillis struct {
