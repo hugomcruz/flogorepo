@@ -83,7 +83,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 		if planeRecord[0] == "1" {
 
 			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
-			localmap : = map[string]string {
+			localmap := map[string]string {
 				"msgtype": planeRecord[0],
 				"timestamp": planeRecord[1],
 				"icaohexcode": paneRecord[2],
@@ -108,7 +108,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 */
 			outputArray = append(outputArray, localmap)
 
-		}
+
 
 	}
 
