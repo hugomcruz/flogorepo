@@ -43,6 +43,19 @@
     "display": {
       "visible": true
     }
+  },
+  {
+    "name": "currentTimestampMillis",
+    "description": "Returns the system timestamp in milliseconds",
+    "example": "timestamp.currentTimestampMillis()\nReturns\n1616564588861",
+    "args": [
+    ],
+    "return": {
+      "type": "int64"
+    },
+    "display": {
+      "visible": true
+    }
   }
 ]
 }
