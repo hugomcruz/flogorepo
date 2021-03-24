@@ -96,8 +96,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"verticalRate": "",
 			}
 			outputArray = append(outputArray, localmap)
-		}
-		else if planeRecord[0] == "2" {
+		} else if planeRecord[0] == "2" {
 
 			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
 			localmap := map[string]string{
@@ -114,8 +113,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"verticalRate": "",
 			}
 			outputArray = append(outputArray, localmap)
-		}
-		else if planeRecord[0] == "3" {
+		} else if planeRecord[0] == "3" {
 
 			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
 			localmap := map[string]string{
@@ -132,8 +130,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"verticalRate": "",
 			}
 			outputArray = append(outputArray, localmap)
-		}
-		else if planeRecord[0] == "4" {
+		} else if planeRecord[0] == "4" {
 
 			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
 			localmap := map[string]string{
@@ -150,9 +147,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"verticalRate": planeRecord[5],
 			}
 			outputArray = append(outputArray, localmap)
-		}
-
-		else if planeRecord[0] == "5" {
+		} else if planeRecord[0] == "5" {
 
 			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
 			localmap := map[string]string{
@@ -167,11 +162,9 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"groundSpeed":  "",
 				"track":        "",
 				"verticalRate": "",
-				
 			}
 			outputArray = append(outputArray, localmap)
-		}
-		else if planeRecord[0] == "6" {
+		} else if planeRecord[0] == "6" {
 
 			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
 			localmap := map[string]string{
@@ -186,7 +179,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"groundSpeed":  "",
 				"track":        "",
 				"verticalRate": "",
-				"squak": planeRecord[4],
+				"squak":        planeRecord[4],
 			}
 			outputArray = append(outputArray, localmap)
 		}
