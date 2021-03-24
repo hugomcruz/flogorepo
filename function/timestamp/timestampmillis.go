@@ -19,7 +19,7 @@ func (fnTimestampMillis) Name() string {
 }
 
 func (fnTimestampMillis) Sig() (paramTypes []data.Type, isVariadic bool) {
-	return []data.Type{data.TypeString, data.TypeString}, false
+	return []data.Type{}, false
 
 }
 
