@@ -73,7 +73,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 	// Split the data string into lines
 	dataLines := strings.Split(data, "\n")
 
-	var outputArray = []Output{}
+	var outputArray = []map[string]string
 
 	for _, s := range dataLines {
 
@@ -82,8 +82,16 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 		if planeRecord[0] == "1" {
 
-			timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+			localmap : = map[string]string {
+				"msgtype": planeRecord[0],
+				"timestamp": planeRecord[1],
+				"icaohexcode": paneRecord[2],
+				"callsign":planeRecord[3],
+			}
 
+
+/*
 			output := &Output{
 				msgType:      planeRecord[0],
 				timestamp:    timestamp,
@@ -97,8 +105,8 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				track:        0,
 				verticalRate: 0,
 			}
-
-			outputArray = append(outputArray, *output)
+*/
+			outputArray = append(outputArray, localmap)
 
 		}
 
