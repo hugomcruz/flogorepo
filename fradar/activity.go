@@ -83,31 +83,113 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 
 			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
 			localmap := map[string]string{
-				"msgtype":     planeRecord[0],
-				"timestamp":   planeRecord[1],
-				"icaohexcode": planeRecord[2],
-				"callsign":    planeRecord[3],
+				"msgtype":      planeRecord[0],
+				"timestamp":    planeRecord[1],
+				"icaohexcode":  planeRecord[2],
+				"callsign":     planeRecord[3],
+				"altitude":     "",
+				"latitude":     "",
+				"longitude":    "",
+				"onGround":     "",
+				"groundSpeed":  "",
+				"track":        "",
+				"verticalRate": "",
 			}
+			outputArray = append(outputArray, localmap)
+		}
+		else if planeRecord[0] == "2" {
 
-			/*
-				output := &Output{
-					msgType:      planeRecord[0],
-					timestamp:    timestamp,
-					icaoHexCode:  planeRecord[2],
-					callsign:     planeRecord[3],
-					altitude:     0,
-					latitude:     0,
-					longitude:    0,
-					onGround:     0,
-					groundSpeed:  0,
-					track:        0,
-					verticalRate: 0,
-				}
-			*/
+			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+			localmap := map[string]string{
+				"msgtype":      planeRecord[0],
+				"timestamp":    planeRecord[1],
+				"icaohexcode":  planeRecord[2],
+				"callsign":     "",
+				"altitude":     planeRecord[3],
+				"latitude":     planeRecord[4],
+				"longitude":    planeRecord[5],
+				"onGround":     planeRecord[6],
+				"groundSpeed":  "",
+				"track":        "",
+				"verticalRate": "",
+			}
+			outputArray = append(outputArray, localmap)
+		}
+		else if planeRecord[0] == "3" {
 
+			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+			localmap := map[string]string{
+				"msgtype":      planeRecord[0],
+				"timestamp":    planeRecord[1],
+				"icaohexcode":  planeRecord[2],
+				"callsign":     "",
+				"altitude":     planeRecord[3],
+				"latitude":     planeRecord[4],
+				"longitude":    planeRecord[5],
+				"onGround":     planeRecord[6],
+				"groundSpeed":  "",
+				"track":        "",
+				"verticalRate": "",
+			}
+			outputArray = append(outputArray, localmap)
+		}
+		else if planeRecord[0] == "4" {
+
+			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+			localmap := map[string]string{
+				"msgtype":      planeRecord[0],
+				"timestamp":    planeRecord[1],
+				"icaohexcode":  planeRecord[2],
+				"callsign":     "",
+				"altitude":     "",
+				"latitude":     "",
+				"longitude":    "",
+				"onGround":     "",
+				"groundSpeed":  planeRecord[3],
+				"track":        planeRecord[4],
+				"verticalRate": planeRecord[5],
+			}
 			outputArray = append(outputArray, localmap)
 		}
 
+		else if planeRecord[0] == "5" {
+
+			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+			localmap := map[string]string{
+				"msgtype":      planeRecord[0],
+				"timestamp":    planeRecord[1],
+				"icaohexcode":  planeRecord[2],
+				"callsign":     "",
+				"altitude":     planeRecord[3],
+				"latitude":     "",
+				"longitude":    "",
+				"onGround":     planeRecord[4],
+				"groundSpeed":  "",
+				"track":        "",
+				"verticalRate": "",
+				
+			}
+			outputArray = append(outputArray, localmap)
+		}
+		else if planeRecord[0] == "6" {
+
+			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
+			localmap := map[string]string{
+				"msgtype":      planeRecord[0],
+				"timestamp":    planeRecord[1],
+				"icaohexcode":  planeRecord[2],
+				"callsign":     "",
+				"altitude":     planeRecord[3],
+				"latitude":     "",
+				"longitude":    "",
+				"onGround":     "",
+				"groundSpeed":  "",
+				"track":        "",
+				"verticalRate": "",
+				"squak": planeRecord[4],
+			}
+			outputArray = append(outputArray, localmap)
+		}
 	}
 
 	if err != nil {
