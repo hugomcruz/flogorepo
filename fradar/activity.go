@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"compress/gzip"
 	"io/ioutil"
-	"strconv"
 	"strings"
 	"sync"
 
@@ -73,7 +72,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 	// Split the data string into lines
 	dataLines := strings.Split(data, "\n")
 
-	var outputArray = []map[string]string
+	var outputArray []map[string]string
 
 	for _, s := range dataLines {
 
@@ -83,32 +82,30 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 		if planeRecord[0] == "1" {
 
 			//timestamp, _ := strconv.ParseInt(planeRecord[1], 10, 64)
-			localmap := map[string]string {
-				"msgtype": planeRecord[0],
-				"timestamp": planeRecord[1],
+			localmap := map[string]string{
+				"msgtype":     planeRecord[0],
+				"timestamp":   planeRecord[1],
 				"icaohexcode": paneRecord[2],
-				"callsign":planeRecord[3],
+				"callsign":    planeRecord[3],
 			}
 
-
-/*
-			output := &Output{
-				msgType:      planeRecord[0],
-				timestamp:    timestamp,
-				icaoHexCode:  planeRecord[2],
-				callsign:     planeRecord[3],
-				altitude:     0,
-				latitude:     0,
-				longitude:    0,
-				onGround:     0,
-				groundSpeed:  0,
-				track:        0,
-				verticalRate: 0,
-			}
-*/
-			outputArray = append(outputArray, localmap)
-
-
+			/*
+				output := &Output{
+					msgType:      planeRecord[0],
+					timestamp:    timestamp,
+					icaoHexCode:  planeRecord[2],
+					callsign:     planeRecord[3],
+					altitude:     0,
+					latitude:     0,
+					longitude:    0,
+					onGround:     0,
+					groundSpeed:  0,
+					track:        0,
+					verticalRate: 0,
+				}
+			*/
+		}
+		outputArray = append(outputArray, localmap)
 
 	}
 
