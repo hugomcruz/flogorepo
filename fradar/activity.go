@@ -87,13 +87,13 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"timestamp":    planeRecord[1],
 				"icaohexcode":  planeRecord[2],
 				"callsign":     planeRecord[3],
-				"altitude":     "",
-				"latitude":     "",
-				"longitude":    "",
+				"altitude":     "0",
+				"latitude":     "0",
+				"longitude":    "0",
 				"onGround":     "",
-				"groundSpeed":  "",
-				"track":        "",
-				"verticalRate": "",
+				"groundSpeed":  "0",
+				"track":        "0",
+				"verticalRate": "0",
 			}
 			outputArray = append(outputArray, localmap)
 		} else if planeRecord[0] == "2" {
@@ -108,9 +108,9 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"latitude":     planeRecord[4],
 				"longitude":    planeRecord[5],
 				"onGround":     planeRecord[6],
-				"groundSpeed":  "",
-				"track":        "",
-				"verticalRate": "",
+				"groundSpeed":  "0",
+				"track":        "0",
+				"verticalRate": "0",
 			}
 			outputArray = append(outputArray, localmap)
 		} else if planeRecord[0] == "3" {
@@ -120,14 +120,14 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"msgtype":      planeRecord[0],
 				"timestamp":    planeRecord[1],
 				"icaohexcode":  planeRecord[2],
-				"callsign":     "",
+				"callsign":     "0",
 				"altitude":     planeRecord[3],
 				"latitude":     planeRecord[4],
 				"longitude":    planeRecord[5],
 				"onGround":     planeRecord[6],
-				"groundSpeed":  "",
-				"track":        "",
-				"verticalRate": "",
+				"groundSpeed":  "0",
+				"track":        "0",
+				"verticalRate": "0",
 			}
 			outputArray = append(outputArray, localmap)
 		} else if planeRecord[0] == "4" {
@@ -138,9 +138,9 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"timestamp":    planeRecord[1],
 				"icaohexcode":  planeRecord[2],
 				"callsign":     "",
-				"altitude":     "",
-				"latitude":     "",
-				"longitude":    "",
+				"altitude":     "0",
+				"latitude":     "0",
+				"longitude":    "0",
 				"onGround":     "",
 				"groundSpeed":  planeRecord[3],
 				"track":        planeRecord[4],
@@ -156,12 +156,12 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"icaohexcode":  planeRecord[2],
 				"callsign":     "",
 				"altitude":     planeRecord[3],
-				"latitude":     "",
-				"longitude":    "",
+				"latitude":     "0",
+				"longitude":    "0",
 				"onGround":     planeRecord[4],
-				"groundSpeed":  "",
-				"track":        "",
-				"verticalRate": "",
+				"groundSpeed":  "0",
+				"track":        "0",
+				"verticalRate": "0",
 			}
 			outputArray = append(outputArray, localmap)
 		} else if planeRecord[0] == "6" {
@@ -173,12 +173,12 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"icaohexcode":  planeRecord[2],
 				"callsign":     "",
 				"altitude":     planeRecord[3],
-				"latitude":     "",
-				"longitude":    "",
+				"latitude":     "0",
+				"longitude":    "0",
 				"onGround":     "",
-				"groundSpeed":  "",
-				"track":        "",
-				"verticalRate": "",
+				"groundSpeed":  "0",
+				"track":        "0",
+				"verticalRate": "0",
 				"squak":        planeRecord[4],
 			}
 			outputArray = append(outputArray, localmap)
