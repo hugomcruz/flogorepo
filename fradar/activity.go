@@ -85,7 +85,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 			localmap := map[string]string{
 				"msgtype":     planeRecord[0],
 				"timestamp":   planeRecord[1],
-				"icaohexcode": paneRecord[2],
+				"icaohexcode": planeRecord[2],
 				"callsign":    planeRecord[3],
 			}
 
@@ -104,8 +104,9 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 					verticalRate: 0,
 				}
 			*/
+
+			outputArray = append(outputArray, localmap)
 		}
-		outputArray = append(outputArray, localmap)
 
 	}
 
