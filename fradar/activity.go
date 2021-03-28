@@ -120,7 +120,7 @@ func (a *CounterActivity) Eval(context activity.Context) (done bool, err error) 
 				"msgtype":      planeRecord[0],
 				"timestamp":    planeRecord[1],
 				"icaohexcode":  planeRecord[2],
-				"callsign":     "0",
+				"callsign":     "",
 				"altitude":     planeRecord[3],
 				"latitude":     planeRecord[4],
 				"longitude":    planeRecord[5],
