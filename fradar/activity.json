@@ -1,7 +1,7 @@
 {
   "name": "fradar",
   "title": "Process Radar Data",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "flogo:activity",
   "author":"Hugo Cruz",
 
